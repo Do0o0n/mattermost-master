@@ -1,0 +1,417 @@
+@charset 'UTF-8';
+@font-face {
+    font-family: "GraphikArabic";
+    src: url("fonts/font/GraphikArabic-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+html,
+body {
+    height: 100%;
+    font-family: "GraphikArabic";
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    background: $bg--gray;
+    font-family: "GraphikArabic";
+    font-weight: normal;
+    font-style: normal;
+
+    &.sticky {
+        .container-fluid {
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+
+    &.admin-onboarding {
+    }
+}
+
+*:focus {
+    outline: none;
+}
+
+.sticky {
+    background: $white;
+
+    > .channel-view {
+        overflow: auto;
+        height: 100vh;
+        padding: 0 15px;
+    }
+
+    .inner-wrap {
+        width: 100%;
+
+        > .row {
+            &.content {
+                min-height: calc(100vh - 89px);
+
+                @media (max-width: 768px) {
+                    min-height: calc(100vh - 187px);
+                }
+            }
+        }
+    }
+}
+
+.help-page {
+    overflow: hidden;
+    padding: 3em 0;
+}
+
+.inner-wrap {
+    height: 100%;
+
+    &.sticky {
+        overflow: auto;
+    }
+
+    > .row {
+        &.main {
+            position: relative;
+            height: 100%;
+        }
+    }
+}
+
+.container-fluid {
+    @include pie-clearfix;
+
+    position: relative;
+    height: 100%;
+}
+
+.channel-view {
+    @include clearfix;
+
+    position: relative;
+    height: 100%;
+}
+
+/* stylelint-disable -- grid-template indentation */
+
+body.app__body {
+    background-color: var(--sidebar-header-bg);
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    color: black;
+}
+
+body.admin-onboarding #root {
+    &.channel-view {
+        display: flex;
+        background-color: transparent;
+    }
+}
+
+.app__body {
+    #root.channel-view {
+        &:has(.backstage-body) {
+            background-color: $bg--gray;
+        }
+    }
+}
+
+#root,
+body.app__body #root {
+    display: grid;
+    overflow: hidden;
+    min-height: 100%;
+
+    --columns: min-content minmax(auto, 1fr) min-content;
+    grid-template:
+        "announcement announcement announcement" min-content
+        "header header header" min-content
+        "team-sidebar main app-sidebar"
+        "footer footer footer" min-content / var(--columns);
+
+    > :only-child {
+        grid-area: main;
+        width: 100%;
+        background-image: url(".././components/login/imagelogin/Vector.svg");
+        background-repeat: no-repeat;
+
+        background-size: cover;
+
+        position: absolute;
+    }
+
+    &.console__root {
+        background-color: inherit;
+        padding-bottom: 0;
+        padding-right: 0;
+        grid-template:
+            "announcement announcement" min-content
+            "header header" min-content
+            "lhs center"
+            "footer footer" min-content;
+        grid-template-columns: auto 1fr; /* lhs takes its content width, center takes remaining space */
+    }
+
+    &.container-fluid {
+        background: none;
+        display: block;
+    }
+
+    &.container-fluid {
+        background: none;
+        display: block;
+    }
+
+    .announcement-bar {
+        grid-area: announcement;
+    }
+
+    
+
+   
+
+    .team-sidebar {
+        grid-area: team-sidebar;
+    }
+    .icon-button-active {
+        background-color: rgb(0, 152, 126);
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    #global-header {
+        direction: ltr;
+        background-color: var(--sidebar-header-bg);
+        border: solid;
+        border-color: rgba(var(--sidebar-text-rgb), 0.08);
+        border-width: 2px;
+        border-radius:10px;
+        font-family: "GraphikArabic";
+        font-weight: normal;
+        font-style: normal;
+        /* box-sizing: border-box; */
+        /* display: flex; */
+        /* flex-direction: row; */
+        /* align-items: center; */
+        // padding: 12px 36px;
+        height: 7%;
+        max-height: 60px;
+        /* background: #ffffff; */
+        /* border-radius: 8px; */
+        /* order: 0; */
+        /* align-self: stretch; */
+        /* flex-grow: 0; */
+        /* min-width: fit-content; *
+        /* justify-content: space-between;*/
+        margin-left: 19px;
+        margin-right: 19px;
+        margin-top: 14px;
+        margin-bottom: 14px;
+
+        html[dir="rtl"] & {
+            flex-direction: row-reverse;
+        }
+    }
+
+    .team-sidebar {
+        grid-area: team-sidebar;
+    }
+
+    .main-wrapper {
+        position: relative;
+        display: grid;
+        // overflow: hidden;
+        color: black;
+        border: var(--border-light);
+        margin: 0 4px 4px 4px;
+        border-radius: var(--radius-l);
+        grid-area: main;
+        grid-template: "lhs center rhs";
+        grid-template-columns: min-content minmax(auto, 1fr) min-content;
+        @media screen and (max-width: 768px) {
+        }
+
+        &:has(.backstage-body) {
+            background: inherit;
+            padding: 0;
+            margin: 0;
+            border-radius: 0;
+            grid-template:
+                "header" min-content
+                "main";
+        }
+
+        &:has(#playbooks-backstageRoot) {
+            margin: 0;
+            border-radius: 0;
+        }
+    }
+
+    &:has(.app-bar) {
+        .main-wrapper {
+            margin-right: 0;
+            background: rgba(var(--sidebar-text-rgb), 0.08);
+        }
+    }
+
+    &:has(.team-sidebar) {
+        .main-wrapper {
+            margin-left: 0;
+        }
+    }
+
+    #SidebarContainer {
+        background-color: var(--sidebar-header-bg);
+        background-size: cover;
+        background-position: top;
+        font-family: "GraphikArabic";
+        font-weight: normal;
+        font-style: normal;
+    }
+    .sidbaercard {
+        background-color: var(--sidebar-header-bg);
+        background-size: cover;
+        background-position: top;
+        font-family: "GraphikArabic";
+        font-weight: normal;
+        font-style: normal;
+        
+        @media screen and (max-width: 768px) {
+           display: none;
+        }
+    }
+
+    #channel_view,
+    .product-wrapper {
+        grid-area: center;
+        overflow: hidden;
+        height: 90.4%;
+        margin-left: 20px;
+        margin-right: 20px;
+        @media screen and (max-width: 768px) {
+            height: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+    }
+
+    .sidebar--right--width-holder {
+        grid-area: rhs;
+        display: none;
+    }
+
+    #sidebar-right {
+        top: 0;
+        margin-top: 13px;
+
+        // right: 0;
+        html[dir="rtl"] & {
+            left: 0;
+            direction: ltr;
+            margin-left: 10px;
+        }
+        html[dir="ltr"] & {
+            right: 0;
+            direction: ltr;
+            margin-right: 10px;
+        }
+
+        @media screen and (min-width: 768px) {
+        }
+    }
+
+    .app-bar {
+        grid-area: app-sidebar;
+    }
+
+    &:not(.console__root) {
+        @media screen and (max-width: 768px) {
+            padding-bottom: 0;
+            padding-right: 0;
+
+            text-align: end;
+            grid-template:
+                "announcement" min-content
+                "header" min-content
+                "main" auto
+                "footer" min-content
+                / auto;
+            .team-sidebar,
+            .app-bar {
+                grid-area: main;
+            }
+
+            #SidebarContainer.move--right {
+                position: relative;
+            }
+            .sidbaercard.move--right {
+                position: relative;
+            }
+            .main-wrapper {
+                margin: 0;
+                grid-template: "main";
+                padding: 0;
+                border-radius: 0;
+
+                #channel_view,
+                #SidebarContainer,
+                .product-wrapper,
+                #sidebar-right {
+                    grid-area: main;
+                    border-radius: 0;
+                    direction: rtl;
+                    @media screen and (max-width: 768px) {height: 100vh;}
+                }
+
+                .channel-view {
+                    border-radius: 0;
+                    border: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+        &.rhs-open-expanded {
+            .sidebar--right--width-holder {
+                display: none;
+            }
+            #sidebar-right {
+                position: absolute;
+                width: 100%;
+                grid-area: center;
+                transition: width 0.25s ease-in-out;
+            }
+            // --columns: min-content auto min-content;
+        }
+        #sidebar-right {
+            transition: none;
+        }
+    }
+}
+
+/* stylelint-enable -- grid-template indentation */
+
+#channel_view.channel-view {
+    overflow: hidden;
+    border-radius: var(--radius-l) var(--radius-l) 0px 0px;
+    border-left: var(--border-light);
+    background: var(--center-channel-bg);
+    box-shadow: var(--elevation-1);
+}
+
+.rhs-open #channel_view.channel-view,
+.rhs-open-expanded #channel_view.channel.view {
+    @media screen and (min-width: 1200px) {
+        padding-right: 20px;
+        margin-right: -20px;
+    }
+}
+
+img {
+    max-width: 200px;
+}

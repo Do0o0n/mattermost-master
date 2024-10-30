@@ -1,0 +1,31 @@
+.disblay {
+    font-weight: normal;
+    html[dir="ltr"] & {
+        display: none;
+
+        font-family: "Graphik Arabic";
+    }
+
+    html[dir="rtl"] & {
+        display: block;
+        font-family: "GraphikArabic";
+        margin-right: 5px;
+        font-weight: normal;
+        font-size: 14px;
+    }
+}
+.dis {
+    html[dir="ltr"] & {
+        font-family: "Graphik Arabic";
+        font-family: "GraphikArabic";
+        font-weight: normal;
+        font-size: 14px !important;
+        color: var(--center-channel-color) !important;
+
+        display: block;
+    }
+
+    html[dir="rtl"] & {
+        display: none;
+    }
+}

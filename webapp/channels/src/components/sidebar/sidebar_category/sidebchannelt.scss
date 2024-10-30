@@ -1,0 +1,48 @@
+/* حاوية حقل البحث */
+.search-input-container {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);  padding: 6px;
+    width: 100%;
+    color: var(--sidebar-text);
+     outline: none;
+     background: transparent;
+     border-color: rgba(var(--sidebar-text-rgb), 0.08);
+     margin-top: 3px;
+     border: solid;
+    border-color: rgba(var(--sidebar-text-rgb), 0.08);
+    border-width: 1px
+}
+
+.search-input::placeholder {
+    font-size: 14px; 
+    color: #7a7a7a;  
+}
+
+.search-input-container .search-input {
+   
+   border: none;
+   background: transparent;
+}
+
+
+.search-input-container .search-icon {
+    position: absolute;
+    
+    font-size: 20px;
+    color: #888; 
+    html[dir="rtl"] & {
+        left: 0;
+    }
+    html[dir="ltr"] & {
+        right: 0;
+    }
+    
+}
+
+
+.search-input-container .search-input-container:focus {
+    border-color: #00987E; 
+  
+    box-shadow: 0 0 5px rgba(248, 249, 250, 0.5); 
+}

@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+.emoji-picker {
+    html[dir="ltr"]  &{
+        pointer-events: auto;
+        margin-left: 300px;
+        margin-right: min(2%);
+    }
+    html[dir="rtl"] & {
+        pointer-events: auto;
+        margin-right: -251px;
+        margin-left: 0;
+        direction: ltr;
+        
+    }
+    DIRECT MESSAGES
+    li.custom-emoji-tab:not(.active) {
+        a {
+            width: max-content;
+            padding-top: 7px !important;
+
+            svg,
+            div {
+                color: rgba(var(--center-channel-color-rgb), 0.64);
+                fill: rgba(var(--center-channel-color-rgb), 0.64);
+            }
+
+            &:hover {
+                svg,
+                div {
+                    color: rgba(var(--center-channel-color-rgb), 0.8);
+                    fill: rgba(var(--center-channel-color-rgb), 0.8);
+                }
+            }
+        }
+    }
+
+    li.custom-emoji-tab.active {
+        a {
+            width: max-content;
+            padding-top: 7px !important;
+
+            svg,
+            div {
+                color: var(--button-bg);
+                fill: var(--mention-bg-rgb);
+            }
+
+            &:hover {
+                svg,
+                div {
+                    color: var(--button-bg);
+                    fill: var(--mention-bg-rgb);
+                }
+            }
+        }
+    }
+
+    .nav.nav-tabs {
+        width: fit-content;
+        width: -moz-fit-content;
+    }
+}
+
+.custom-emoji-tab__icon__text {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 13rem;
+}
+
+.custom-emoji-tab {
+    display: flex;
+}
+
+.custom-emoji-tab__icon {
+    margin-right: 7px;
+}

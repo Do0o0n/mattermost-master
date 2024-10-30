@@ -1,0 +1,387 @@
+@import "utils/variables";
+.send-button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    display: flex;
+    .cooldown-timer {
+        display: none;
+    }
+}
+.react-resizable-handle-n {
+    top: -6px;
+    transform: rotate(1deg);
+}
+.react-resizable-handle {
+    svg{
+        fill:rgb(245, 245, 245) !important;
+    }
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    box-sizing: border-box;
+    background-image: url("../../images/resize-height.svg");
+    background-position: bottom right;
+    background-size: cover;
+    display: flex;
+    padding:0;
+}
+.react-resizable-handle {
+    color: #00987e;
+}
+.cooldown-timer {
+    display: none; /* إخفاء العنصر بشكل افتراضي */
+}
+
+/* إظهار .cooldown-timer عند التمرير على العنصر الأب (.send-button) */
+.send-button:hover .cooldown-timer {
+    display: block;
+}
+.send-button.cooldown {
+    cursor: not-allowed; /* المؤشر عند التبريد */
+}
+
+.noAnimation {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 48px;
+    padding-left: 4px;
+    background: transparent;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 2px;
+    -webkit-transform-origin: top;
+    -ms-transform-origin: top;
+    transform-origin: top;
+    -webkit-transition: height 0.25s ease;
+    transition: height 0.25s ease;
+}
+.VoicePluginComponent {
+    display: flex;
+    min-width: 32px;
+    height: 32px;
+    place-items: center;
+    place-content: center;
+    border: none;
+    background: transparent;
+    padding: 0 7px;
+    border-radius: 4px;
+    color: #00987e;
+
+    &:hover {
+        background: rgba(var(--center-channel-color-rgb), 0.06);
+        color: rgba(var(--center-channel-color-rgb), var(--icon-opacity-hover));
+        fill: currentColor;
+    }
+
+    &:active,
+    &.active,
+    &.active:hover {
+        background: rgba(var(--button-bg-rgb), 0.06);
+        color: var(--button-bg);
+        fill: currentColor;
+    }
+}
+.Animation {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 48px;
+    padding-left: 7px;
+    background: transparent;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 2px;
+    -webkit-transform-origin: top;
+    -ms-transform-origin: top;
+    transform-origin: top;
+    -webkit-transition: height 0.25s ease;
+    transition: height 0.25s ease;
+    @keyframes borderPulse {
+        0% {
+            color: #00987e;
+
+            background: rgba(0, 128, 0, 0.301);
+            border-radius: 100%;
+            box-shadow: 0px 0px 4px green;
+        }
+        50% {
+            background: rgba(0, 128, 0, 0.301);
+            border-radius: 100%;
+            box-shadow: 0px 0px 8px green;
+        }
+        100% {
+            background: rgba(0, 128, 0, 0.301);
+            color: #00987e;
+            box-shadow: 0px 0px 16px green;
+            border-radius: 100%;
+        }
+    }
+
+    #messagePriority {
+        svg {
+            animation: borderPulse 1s infinite;
+            display: inline-block;
+            text-align: center;
+        }
+    }
+}
+.AdvancedTextEditor {
+    &__ctr {
+        form {
+            padding: unset;
+        }
+    }
+
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: end;
+    padding: 6px 24px;
+    margin: 0 auto;
+    gap: 12px;
+    justify-items: stretch;
+
+    .sidebar--right & {
+        padding-top: 12px;
+
+        .AutoHeight {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    .ThreadViewer & {
+        padding-top: 12px;
+
+        .AutoHeight {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    .custom-textarea {
+        // fix for a miscalculation due to the heavily overwritten custom-textarea class
+        height: 0;
+
+        html[dir="ltr"] & {
+            padding-right: calc(
+                16px + var(--right-padding-for-scrollbar) +
+                    var(--right-padding-for-preview-button)
+            );
+        }
+        box-shadow: none;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &.textbox-preview-area {
+            height: auto;
+        }
+    }
+
+    /* stylelint-disable length-zero-no-unit */
+    --right-padding-for-scrollbar: 0px;
+    --right-padding-for-preview-button: 0px;
+    /* stylelint-enable length-zero-no-unit */
+
+    &.scroll {
+        --right-padding-for-scrollbar: 8px;
+    }
+
+    // With the formatting bar disabled, leave room on the right for the post controls until the text takes up
+    // multiple lines. At that point, leave space below the text as if the controls were still there.
+    &.formatting-bar {
+        --right-padding-for-preview-button: 32px;
+    }
+
+    &__body {
+        position: relative;
+        max-width: 100%;
+        flex: 1;
+        border: 2px solid rgba(var(--center-channel-color-rgb), 0.16);
+        border-radius: 4px;
+
+        &:focus-visible,
+        &:focus-within,
+        &:focus-visible:hover,
+        &:focus-within:hover {
+            border: 2px solid rgba(var(--center-channel-color-rgb), 0.32);
+            outline: none;
+            outline-offset: 0;
+        }
+
+        &:hover {
+            border: 2px solid rgba(var(--center-channel-color-rgb), 0.24);
+        }
+
+        &[disabled] {
+            &:hover {
+                border: none;
+            }
+        }
+    }
+    .colorsvg {
+        svg {
+            fill: rgb(13 157 133) !important;
+        }
+    }
+    &__action-button {
+        display: flex;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: none;
+        border-radius: 4px;
+        background: transparent;
+        color: rgb(13 157 133);
+        // rgba(var(--center-channel-color-rgb), 0.75);
+        cursor: pointer;
+        fill: currentColor;
+
+        &:hover {
+            background: rgba(var(--center-channel-color-rgb), 0.08);
+            color: rgba(var(--center-channel-color-rgb), 0.8);
+            fill: currentColor;
+            text-decoration: none;
+        }
+
+        &.hidden {
+            visibility: hidden;
+        }
+
+        & + input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            cursor: pointer;
+            direction: ltr;
+            font-size: 23px;
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    &__action-button--active {
+        background: rgba(var(--button-bg-rgb), 0.08);
+        color: rgb(var(--button-bg-rgb));
+        fill: currentColor;
+    }
+
+    &__icon {
+        display: inline-flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        font-family: "compass-icons";
+        font-size: 18px;
+    }
+
+    &__cell {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        vertical-align: top;
+        // html[dir="rtl"] & {direction: ltr;}
+    }
+
+    &__helper-text {
+        display: inline-block;
+        margin: 8px 0 4px;
+        color: rgba(var(--center-channel-color-rgb), 0.75);
+        font-family: "Graphik Arabic";
+    }
+
+    &__footer {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 0 24px;
+        font-size: 13px;
+        gap: 9px;
+        .help__text {
+            text-align: right;
+
+            a,
+            button {
+                margin-left: 10px;
+            }
+        }
+
+        &--has-error {
+            color: var(--error-text);
+        }
+
+        .post-error {
+            position: absolute;
+            top: 4px;
+            display: inline-block;
+            margin-bottom: 0;
+            font-size: 0.85em;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .AdvancedTextEditor {
+        padding: 0;
+
+        &__body {
+            border-radius: 0;
+            border-right: none;
+            border-left: none;
+
+            &:focus-visible,
+            &:focus-within,
+            &:focus-visible:hover,
+            &:focus-within:hover,
+            &:hover {
+                border-right: none;
+                border-left: none;
+            }
+        }
+
+        .ThreadViewer & {
+            .msg-typing:empty {
+                display: none;
+            }
+        }
+    }
+
+    .sidebar--right .post-create__container {
+        form {
+            padding: 0;
+        }
+    }
+}
+
+.msg-typing {
+    display: block;
+    overflow: hidden;
+    height: 20px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    opacity: 0.7;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #00987e;
+}

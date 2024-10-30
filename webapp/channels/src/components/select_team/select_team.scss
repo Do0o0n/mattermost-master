@@ -1,0 +1,131 @@
+.SelectTeam__sub-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 24px;
+    @media screen and (max-width: 500px) {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        min-width: 100px;
+    }
+    .SelectTe {
+        display: inline-flex;
+        gap: 10px;
+        @media screen and (max-width: 500px) {
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            min-width: 100px;
+        }
+        .card-button {
+            display: inline-flex;
+            background: #00987e;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-s);
+            padding: 5px 10px;
+            &:hover {
+                background: rgb(0 152 126);
+            }
+
+            a {
+                color: rgb(var(--button-color-rgb));
+                text-decoration: none;
+                letter-spacing: -0.011em;
+                font-size: 14px;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            .icon-Create {
+                font-size: 20px;
+                flex: none;
+                order: 1;
+                flex-grow: 0;
+            }
+        }
+        .card-button1 {
+            box-sizing: border-box;
+
+            border-radius: 6px;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+            border: 1px solid #eeeeee;
+            border-radius: 6px;
+            display: inline-flex;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-s);
+            padding: 5px 10px;
+            @media screen and (max-width: 500px) {
+                display: flex;
+                flex-direction: column;
+                width: auto;
+                min-width: 100px;
+            }
+            &:hover {
+                background: #fafafa;
+            }
+            a {
+                color: rgb(var(--button-color-rgb));
+                text-decoration: none;
+                font-style: normal;
+                line-height: 24px;
+                text-align: center;
+                letter-spacing: -0.011em;
+                color: #99a09f;
+                flex: none;
+                order: 0;
+                flex-grow: 0;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    > h4 {
+        margin: 0;
+
+        span {
+            display: inline-flex;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 28px;
+        }
+    }
+}
+.card-select-team {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 32px;
+    gap: 64px;
+    isolation: isolate;
+    /* width: 1118px; */
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12.5px);
+    border-radius: 24px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    /* border-color: aquamarine; */
+    border: solid 1px rgb(232 245 243);
+}
+
+    .hed{
+        width: 100%;
+    }
+
+    .name{
+        text-align: center;
+
+    }

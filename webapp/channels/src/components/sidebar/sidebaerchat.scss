@@ -1,0 +1,222 @@
+@font-face {
+    font-family: "GraphikArabic";
+    src: url("fonts/font/GraphikArabic-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+.Buttonhover {
+    background-color: var(--sidebar-bg);
+    display: flex;
+    flex-direction: initial;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    flex-direction: row;
+    padding-top: 7px;
+    height: 50px;
+    /* justify-content: center; */
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+
+    padding-left: 16px;
+    text-overflow: ellipsis " [..]";
+    font-family: "GraphikArabic";
+    font-size: 15px;
+    font-weight: normal;
+   svg:hover {
+            stroke: green; /* اللون الأخضر عند التمرير فوقه */
+            fill: none;
+        }
+    button {
+        z-index: 1;
+        top: 0;
+        display: flex;
+        min-width: 0;
+        height: 32px;
+        flex: 1 1 auto;
+        align-items: center;
+        border: none;
+        background-color: transparent;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.33);
+        color: var(--sidebar-text);
+        font-family: "Graphik Arabic";
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-align: left;
+
+        text-transform: uppercase;
+        transition: box-shadow 0.25s ease-in-out;
+        white-space: nowrap;
+    }
+    .SidebarChannelGroupHeader_text {
+       
+    }
+    svg {
+        margin-right: 2px;
+        color: var(--sidebar-text);
+        margin-right: 25px;
+        margin-top: 9%;
+
+        .icon-path {
+            stroke: var(--sidebar-text); /* Your desired color */
+            fill: none;
+        }
+    }
+    .iconstyls{
+        font-size: 20px !important;
+        html[dir="ltr"] & {
+            display: none;
+        }
+    }
+    .ar {
+        margin-top: 12px;
+        font-family: "GraphikArabic";
+        font-weight: normal;
+        font-size: 17px;
+        line-height: 24px;
+        text-align: right;
+    
+
+        html[dir="ltr"] & {
+            display: none;
+        }
+    }
+    .en {
+
+        font-family: "GraphikArabic";
+        font-weight: normal;
+        font-size: 17px;
+        font-weight: normal;
+        margin-top: 7px;
+
+        margin-left: -24px;
+        html[dir="rtl"] & {
+            display: none;
+        }
+    }
+    p:hover {
+        color: #00987e;
+       
+    }
+    &:hover {
+        background: rgba(var(--center-channel-color-rgb), 0.08);
+        color: rgba(var(--center-channel-color-rgb), 0.8);
+        fill: currentColor;
+        text-decoration: none;
+        color: #00987e;
+        
+    }
+}
+.SidebarChannelGroup .SidebarChannelGroupHeader {
+    z-index: 1;
+    top: 0;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    border: none;
+    background-color: var(--sidebar-bg);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.33);
+    color: rgba(var(--sidebar-text-rgb), 0.64);
+    font-family: "Graphik Arabic";
+    text-align: left;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    transition: box-shadow 0.25s ease-in-out;
+
+    .SidebarMenu_menuButton {
+        width: 28px;
+        height: 28px;
+        margin: 2px 16px 2px 2px;
+
+        &:hover,
+        &:focus {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        &.sortingMenu {
+            margin: 0;
+        }
+    }
+
+    .SidebarMenu:not(.menuOpen) {
+    }
+
+    &.muted {
+        .icon-chevron-down,
+        .SidebarChannelGroupHeader_text {
+            opacity: 0.4;
+        }
+    }
+
+    &.dragging {
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
+        color: var(--sidebar-text);
+
+        .SidebarChannelGroupHeader_groupButton {
+            border-radius: 4px;
+        }
+    }
+}
+
+.sidbaercard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    //   border: 1px solid black;
+    //   padding: 10px
+}
+.sidbaernone {
+    // display: none;
+}
+.sidbaerblock {
+    // display: block;
+}
+
+.sidbaer-card {
+    display: flex;
+    width: 100%;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: solid;
+    border-color: rgba(var(--sidebar-text-rgb), 0.08);
+    border-width: 1px;
+    .sova {
+        display: inline-flex;
+        height: fit-content;
+    }
+
+    .sidbaer-imgi {
+        background-image: url("../../images/logo.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 32px;
+        height: 32px;
+    }
+    .text-sidbaer {
+        margin-right: 6px;
+        color: var(--sidebar-text);
+        font-family: "GraphikArabic";
+        font-weight: bold;
+        font-style: normal;
+        font-size: 15px;
+        margin-top: 5px;
+        html[dir="ltr"] & {
+            margin-left: 6px;
+        }
+    }
+}
+.sidbaer-card1 {
+    width: 100%;
+    height: 55px;
+    border-bottom: solid;
+    border-color: rgba(var(--sidebar-text-rgb), 0.08);
+    border-width: 1px;
+    margin-top: 1px;
+    .SidebarChannelGroupHeader {
+        background-color: transparent;
+    }
+}

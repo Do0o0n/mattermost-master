@@ -1,0 +1,55 @@
+.disblay {
+    font-family: "Graphik Arabic";
+    font-weight: 600;
+    display: none;
+    html[dir="ltr"] & {
+        display: block;
+        background-color: aqua;
+    }
+}
+.disblayy {
+    font-family: "Graphik Arabic";
+
+    html[dir="ltr"] & {
+        display: block;
+    }
+
+    html[dir="rtl"] & {
+        display: none;
+    }
+}
+
+.artex {
+    margin-top: 12px;
+    font-family: "GraphikArabic";
+    font-weight: bold;
+    font-size: 15px;
+    /* Frame 46 */
+    margin: 6px;
+text-align: right;
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+
+    
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+
+    html[dir="ltr"] & {
+        display: none;
+    }
+}
+.entex {
+    font-family: "GraphikArabic";
+    font-weight: bold;
+    font-size: 15px;
+
+    margin-top: 7px;
+    html[dir="rtl"] & {
+        display: none;
+    }
+}
